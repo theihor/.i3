@@ -12,9 +12,9 @@ TOGGLE=$HOME/.i3/.alt_screen_on
 W_MAIN=$HOME/.i3/graphics/wallpapers/wallpaper_main
 W_ALT=$HOME/.i3/graphics/wallpapers/wallpaper_alt
 
-if (xrandr | grep "^HDMI1 connected" > /dev/null); then
+if (xrandr | grep "^HDMI0 connected" > /dev/null); then
     # one screen by default
-    xrandr --output eDP1 --off --output HDMI1 --auto --primary
+    xrandr --output DP-0 --off --output HDMI1 --auto --primary
     # non-empty parameter triggers toggle mode
     if [ -z "$1" ]; then
         # remove toggle flag
@@ -23,15 +23,17 @@ if (xrandr | grep "^HDMI1 connected" > /dev/null); then
     else
         if [ ! -e $TOGGLE ]; then
             touch $TOGGLE
-            xrandr --output eDP1 --auto --right-of HDMI1
-        else
+            xrandr --output DP-0 --mode 1440x900 --pos 1920x0 --rotate left
+            #xrandr --output DP-0 --auto --right-of HDMI1
+        else 
             rm $TOGGLE
-            xrandr --output eDP1 --off
+            xrandr --output DP-0 --off
         fi
     fi
 else
-    xrandr --output eDP1 --auto --primary
+    xrandr --output DP-0 --auto --primary
 fi
 
-feh --bg-scale $W_MAIN --bg-scale $W_ALT
+#feh --bg-scale $W_MAIN --bg-scale $W_ALT
+bgchd -dir=~/.i3/graphics/wallpapers/ -intv=60 -bcknd=/etc/autobgch/scripts/feh
 #-------------------------------------------------------------------------------
