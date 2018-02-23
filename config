@@ -19,20 +19,17 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # workspace setup
-workspace  1 output HDMI-0
-workspace  2 output HDMI-0
-workspace  3 output HDMI-0
-workspace  4 output HDMI-0
-workspace  5 output HDMI-0
-workspace  6 output HDMI-0
-workspace  7 output HDMI-0
-workspace  8 output HDMI-0
-workspace  9 output HDMI-0
-workspace 10 output DP-0
+workspace  1 output eDP1
+workspace  2 output eDP1
+workspace  3 output eDP1
+workspace  4 output eDP1
+workspace  5 output eDP1
+workspace  6 output eDP1
+workspace  7 output eDP1
+workspace  8 output eDP1
+workspace  9 output eDP1
+workspace 10 output eDP1 
 #-------------------------------------------------------------------------------
-
-
-
 
 
 #-------------------------------------------------------------------------------
@@ -40,7 +37,7 @@ workspace 10 output DP-0
 #-------------------------------------------------------------------------------
 exec_always killall kbdd nm-applet compton twmnd
 #exec_always $conf/scripts/screen.sh
-exec_always ~/.screenlayot/my.sh
+#exec_always ~/.screenlayot/my.sh
 exec_always setxkbmap us,ua -option grp:switch,grp:shifts_toggle,ctrl:nocaps
 exec_always --no-startup-id compton --config $conf/components/compton.conf
 exec_always --no-startup-id nm-applet
@@ -57,33 +54,33 @@ exec --no-startup-id i3-msg workspace 1
 # bars
 #-------------------------------------------------------------------------------
 # top
+#bar {
+#    id topbar
+#    position top
+#    output eDP1
+##    status_command i3blocks -c $conf/components/top.conf
+#    font pango:FontAwesome 10.5
+#    separator_symbol " "
+#    tray_output none
+#    binding_mode_indicator no
+#
+#    height 22
+#
+#    colors {
+#        background #000000
+#        statusline #ffffff
+#        focused_workspace  #000000 #50C878 #000000
+#        active_workspace   #000000 #5f676a #ffffff
+#        inactive_workspace #000000 #283618 #ffffff
+#        urgent_workspace   #000000 #f3de8a #000000
+#    }
+#}
+
 bar {
     id topbar
     position top
-    output HDMI-0
-#    status_command i3blocks -c $conf/components/top.conf
-    font pango:FontAwesome 10.5
-    separator_symbol " "
-    tray_output none
-    binding_mode_indicator no
-
-    height 22
-
-    colors {
-        background #000000
-        statusline #ffffff
-        focused_workspace  #000000 #50C878 #000000
-        active_workspace   #000000 #5f676a #ffffff
-        inactive_workspace #000000 #283618 #ffffff
-        urgent_workspace   #000000 #f3de8a #000000
-    }
-}
-
-bar {
-    id topbar2
-    position top
-    output DP-0
-    workspace_buttons no
+    output eDP1
+    #workspace_buttons no
     status_command i3blocks -c $conf/components/top.conf
     font pango:FontAwesome 10.5
     separator_symbol " "
@@ -107,7 +104,7 @@ bar {
 bar {
     id bottombar
     position bottom
-    output DP-0
+    output eDP1
     workspace_buttons no
     separator_symbol " "
     font pango:FontAwesome 10.5
