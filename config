@@ -2,7 +2,7 @@
 # global setup
 #-------------------------------------------------------------------------------
 set $mod Mod4
-set $term xfce4-terminal
+set $term gnome-terminal
 set $conf ~/.i3
 set $execf exec --no-startup-id
 
@@ -19,16 +19,16 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # workspace setup
-workspace  1 output HDMI-0
-workspace  2 output HDMI-0
-workspace  3 output HDMI-0
-workspace  4 output HDMI-0
-workspace  5 output HDMI-0
-workspace  6 output HDMI-0
-workspace  7 output HDMI-0
-workspace  8 output HDMI-0
-workspace  9 output HDMI-0
-workspace 10 output DP-0
+workspace  1 output HDMI-2
+workspace  2 output HDMI-2
+workspace  3 output HDMI-2
+workspace  4 output HDMI-2
+workspace  5 output HDMI-2
+workspace  6 output HDMI-1
+workspace  7 output HDMI-1
+workspace  8 output HDMI-1
+workspace  9 output HDMI-1
+workspace 10 output HDMI-1
 #-------------------------------------------------------------------------------
 
 
@@ -60,8 +60,8 @@ exec --no-startup-id i3-msg workspace 1
 bar {
     id topbar
     position top
-    output HDMI-0
-#    status_command i3blocks -c $conf/components/top.conf
+    output HDMI-1
+    status_command i3blocks -c $conf/components/top2.conf
     font pango:FontAwesome 10.5
     separator_symbol " "
     tray_output none
@@ -82,8 +82,8 @@ bar {
 bar {
     id topbar2
     position top
-    output DP-0
-    workspace_buttons no
+    output HDMI-2
+    #workspace_buttons no
     status_command i3blocks -c $conf/components/top.conf
     font pango:FontAwesome 10.5
     separator_symbol " "
@@ -107,7 +107,7 @@ bar {
 bar {
     id bottombar
     position bottom
-    output DP-0
+    output HDMI-2
     workspace_buttons no
     separator_symbol " "
     font pango:FontAwesome 10.5

@@ -7,8 +7,14 @@
 
 data=$(curl -sL https://api.coinmarketcap.com/v1/ticker/$1)
 
+prec=$2
+
+if [[ -z $prec ]]; then
+    prec=0
+fi
+
 if [[ ! -z $data ]]; then
-    echo '$'$(echo $data | jq .[0].price_usd | tr -d '"' | xargs printf "%.*f" 2) 
+    echo '$'$(echo $data | jq .[0].price_usd | tr -d '"' | xargs printf "%.*f" $prec)
 else
     echo "N/A"
 fi
