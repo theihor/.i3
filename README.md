@@ -18,9 +18,3 @@ Simple and clean double-bar `i3` setup to please my inner perfectionist.
 - `kbdd` (per-app keyboard layout)
 - `twmnd` (notifications manager)
 
-## Scripts
-
-`scripts` directory contains following scripts:
-
-- `btc_usd.sh` (current bitcoin price)
-- `screen.sh` (screen output setup via `xrandr`)
